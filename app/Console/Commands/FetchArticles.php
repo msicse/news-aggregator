@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\GuardianApiService;
 use App\Services\NewsApiService;
 use Illuminate\Console\Command;
 
@@ -22,11 +23,13 @@ class FetchArticles extends Command
     protected $description = 'Fetch latest articles from NewsAPI news sources';
 
     protected $newsApiService;
+    protected $guardianApiService;
 
-    public function __construct(NewsApiService $newsApiService)
+    public function __construct(NewsApiService $newsApiService, GuardianApiService $guardianApiService)
     {
         parent::__construct();
         $this->newsApiService = $newsApiService;
+        $this->guardianApiService = $guardianApiService;
     }
 
     /**
@@ -35,6 +38,7 @@ class FetchArticles extends Command
     public function handle()
     {
         $this->newsApiService->fetchArticles();
+        $this->guardianApiService->fetchArticles();
 
         $this->info('Articles fetched successfully from all sources.');
 
