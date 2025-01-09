@@ -43,4 +43,8 @@ return [
         'key' => env('GUARDIANAPI_KEY'),
     ],
 
+    'newyorktimes' => [
+        'key' => env('NEWYORKTIMESAPI_KEY'),
+    ],
+
 ];

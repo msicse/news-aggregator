@@ -45,7 +45,7 @@ class NewsApiService
                     'author' => $article['author'],
                     'source' => $article['source']['name'],
                     'category' => 'technology',
-                    'published_at' => $mysqlDate
+                    'published_at' => toSqlDate($article['publishedAt'])
                 ]
             );
 
