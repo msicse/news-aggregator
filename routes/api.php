@@ -10,3 +10,6 @@ Route::get('/user', function (Request $request) {
 
 
 Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/search', [ArticleController::class, 'search']);
+Route::get('/articles/filter', [ArticleController::class, 'filter']);
+Route::get('/articles/{id}', [ArticleController::class, 'show']);
